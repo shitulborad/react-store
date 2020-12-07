@@ -28,7 +28,7 @@ export default class Modal extends Component {
                                                   Continue Shopping
                                             </ButtonContainer>
                                           </Link>
-                                          <Link to='/cart'  className='ml-3'>
+                                          <Link to='/cart' >
                                             <ButtonContainer detail onClick={()=>closeModal()}>
                                                   go to cart
                                             </ButtonContainer>

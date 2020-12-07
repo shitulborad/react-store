@@ -49,7 +49,7 @@ export default class Details extends Component {
                                             back to products
                                         </ButtonContainer>
                                     </Link>
-                                    <ButtonContainer className='ml-2' detail disabled={inCart?true:false} onClick={()=>{
+                                    <ButtonContainer  detail disabled={inCart?true:false} onClick={()=>{
                                         value.addToCart(id);
                                         value.openModal(id);
                                     }}>
