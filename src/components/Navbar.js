@@ -9,7 +9,7 @@ export default class Navbar extends Component {
         return (
            <NavWrapper className='navbar navbar-expand-sm  navbar-dark px-sm-5'>
                {/*  
-                    https://www.iconfinder.com/icons/1243689/call_phone_icon
+                    https://www.iconfinder.com/iconsets/thefreeforty
                     Creative Commons (Attribution 3.0 Unported);
                     https://www.iconfinder.com/Makoto_msk  
                 */}
@@ -40,7 +40,7 @@ export default class Navbar extends Component {
 const NavWrapper=styled.nav`
 background:var(--mainBlue);
 .nav-link{
-    color:var(--mainWhite) !important;
+    color:var(--lightYellow) !important;
     font-size:1.3rem;
     text-transform:capitalize;
 }

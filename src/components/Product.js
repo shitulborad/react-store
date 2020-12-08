@@ -14,7 +14,7 @@ export default class Product extends Component {
                     {(value)=>(
                          <div className="img-container p-5" onClick={()=> value.handleDeatil(id)}>
                         <Link to='/details'>
-                            <img src={img} alt='produts' className='card-img-top'/>
+                            <img src={img}  alt='produts' className='card-img-top'/>
                         </Link>
                         <button className='cart-btn' disabled={inCart?true:false} onClick={()=>{
                             value.addToCart(id);
@@ -61,12 +61,12 @@ Product.propTypes={
 const ProductWrapper = styled.div`
 .card{
     border-color:transparent;
-    transition:all 2s linear;
+    transition:all 1s linear;
 }
 .card-footer{
     background:transparent;
     border-top:transparent;
-    transition:all 2s linear;
+    transition:all 1s linear;
 }
 &:hover{
     .card{
