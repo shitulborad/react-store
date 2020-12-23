@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Product from './Product'
 import Title from './Title'
+import Categories from './Categories'
 import {ProductConsumer} from '../context'
 
 export default class ProductList extends Component {
@@ -10,6 +11,10 @@ export default class ProductList extends Component {
                 <div className="py-5">
                     <div className="container">
                             <Title name='our' title='products'/>
+                            <div className="container">
+                                <Categories />
+                                
+                            </div>  
                         <div className="row">
                             <ProductConsumer>
                                 {

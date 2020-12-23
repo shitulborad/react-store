@@ -3,10 +3,12 @@ import { ThemeConsumer } from 'styled-components';
 import {storeProducts, detailProduct} from './data'
 
 const ProductContext=React.createContext();
+const allCategory = ['All' , ...new Set(storeProducts.map((c)=>c.category))];
 
 class ProductProvider extends Component {
     state={
         products:[],
+        copyProducts:[],
         detailProduct:detailProduct,
         cart:[],
         modalOpen:false,
@@ -14,6 +16,7 @@ class ProductProvider extends Component {
         cartSubTotal:0,
         cartTax:0,
         cartTotal:0,
+        categories:allCategory,
     }
     componentDidMount(){
         this.setProducts();
@@ -25,7 +28,7 @@ class ProductProvider extends Component {
             tempProducts=[...tempProducts,singleItem]
         })
         this.setState(()=>{
-            return {products:tempProducts}
+            return {products:tempProducts,copyProducts:tempProducts}
         })
     }
     getItem = (id) =>{
@@ -137,6 +140,36 @@ class ProductProvider extends Component {
             }
         })
     }
+        // handleCate =(category) =>{;
+        // let tempProduct=[...this.state.products];
+        //     const newItem = tempProduct.filter((item)=> item.category === category)
+        //     this.setState(()=>{
+        //          return {products:[...newItem]}
+        //     })
+        // }
+    // componentDidMount()
+    // {
+    //              this.setCategories();
+    // }
+    setCategories = (category) =>{
+        let tempProducts=[...this.state.copyProducts];
+        if(category === 'All'){
+            this.setState(()=>{
+               return {products:[...tempProducts]}
+            },()=>{
+                this.setProducts();
+            })
+        }
+    
+        //  let newItem=[...this.state.products];
+     
+   const newItem = tempProducts.filter((item)=> item.category === category)
+  
+         this.setState(()=>{
+        
+               return {products:[...newItem]}
+            })
+    }
     // tester=()=>{
     //     console.log('store',this.state.products[0].inCart)
     //     console.log('data',storeProducts[0].inCart);
@@ -163,6 +196,7 @@ class ProductProvider extends Component {
                 removeItem:this.removeItem,
                 clearCart:this.clearCart,
                 addTotal:this.addTotal,
+                setCategories:this.setCategories,
             }}>
                 {this.props.children}
             </ProductContext.Provider>
